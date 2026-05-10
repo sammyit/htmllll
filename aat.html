@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prince Samuel Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      display:flex;
+      overflow-x:hidden;
+    }
+
+    /* ================= SIDEBAR ================= */
+
+    .sidebar{
+      width:250px;
+      height:100vh;
+      background:#111827;
+      position:fixed;
+      left:0;
+      top:0;
+      padding:30px 20px;
+      border-right:1px solid rgba(255,255,255,0.1);
+      z-index:1000;
+    }
+
+    .sidebar h2{
+      color:#38bdf8;
+      text-align:center;
+      margin-bottom:40px;
+      font-size:2rem;
+      font-weight:700;
+    }
+
+    .sidebar ul{
+      list-style:none;
+    }
+
+    .sidebar ul li{
+      margin:20px 0;
+    }
+
+    .sidebar ul li a{
+      text-decoration:none;
+      color:#cbd5e1;
+      font-size:1.05rem;
+      display:block;
+      padding:12px;
+      border-radius:12px;
+      transition:0.3s;
+    }
+
+    .sidebar ul li a:hover{
+      background:#38bdf8;
+      color:#0f172a;
+      transform:translateX(5px);
+    }
+
+    /* ================= MAIN CONTENT ================= */
+
+    .main-content{
+      margin-left:250px;
+      width:calc(100% - 250px);
+    }
+
+    section{
+      min-height:100vh;
+      padding:80px 10%;
+    }
+
+    /* ================= HERO SECTION ================= */
+
+    .hero{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      background:linear-gradient(135deg, #0f172a, #1e293b);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:400px;
+      height:400px;
+      background:#38bdf8;
+      border-radius:50%;
+      filter:blur(150px);
+      opacity:0.15;
+      top:-100px;
+      right:-100px;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:300px;
+      height:300px;
+      background:#0ea5e9;
+      border-radius:50%;
+      filter:blur(150px);
+      opacity:0.1;
+      bottom:-100px;
+      left:-100px;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:700px;
+      padding:45px;
+      border-radius:25px;
+      background:rgba(255,255,255,0.05);
+      backdrop-filter:blur(15px);
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .profile-img{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      object-fit:cover;
+      border:5px solid #38bdf8;
+      margin-bottom:20px;
+      box-shadow:0 0 25px rgba(56,189,248,0.6);
+      transition:0.4s;
+    }
+
+    .profile-img:hover{
+      transform:scale(1.05);
+    }
+
+    h1{
+      font-size:3rem;
+      margin-bottom:10px;
+      font-weight:700;
+      background:linear-gradient(to right, #38bdf8, #ffffff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .tagline{
+      font-size:1.2rem;
+      color:#cbd5e1;
+      margin-bottom:30px;
+      letter-spacing:2px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 34px;
+      background:#38bdf8;
+      color:#0f172a;
+      text-decoration:none;
+      border-radius:40px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#0ea5e9;
+      transform:translateY(-5px);
+      box-shadow:0 10px 20px rgba(14,165,233,0.4);
+    }
+
+    /* ================= SECTION TITLES ================= */
+
+    .section-title{
+      font-size:2.5rem;
+      color:#38bdf8;
+      margin-bottom:25px;
+      position:relative;
+    }
+
+    .section-title::after{
+      content:"";
+      width:70px;
+      height:4px;
+      background:#38bdf8;
+      position:absolute;
+      left:0;
+      bottom:-10px;
+      border-radius:10px;
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about{
+      background:#111827;
+    }
+
+    .about p{
+      max-width:850px;
+      line-height:1.9;
+      font-size:1.1rem;
+      color:#cbd5e1;
+      margin-top:30px;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects{
+      background:#0f172a;
+    }
+
+    .projects-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:30px;
+      margin-top:40px;
+    }
+
+    .project-card{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.1);
+      transition:0.4s;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+      border-color:#38bdf8;
+      box-shadow:0 10px 25px rgba(56,189,248,0.2);
+    }
+
+    .project-card h3{
+      color:#38bdf8;
+      margin-bottom:15px;
+      font-size:1.4rem;
+    }
+
+    .project-card p{
+      color:#cbd5e1;
+      line-height:1.7;
+      margin-bottom:15px;
+    }
+
+    .tech{
+      color:#94a3b8;
+      font-size:0.95rem;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact{
+      background:#111827;
+    }
+
+    .contact-info{
+      margin-top:30px;
+    }
+
+    .contact-info p{
+      margin:18px 0;
+      font-size:1.1rem;
+      color:#cbd5e1;
+    }
+
+    .contact-info a{
+      color:#38bdf8;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .contact-info a:hover{
+      color:white;
+      text-decoration:underline;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:768px){
+
+      body{
+        flex-direction:column;
+      }
+
+      .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+      }
+
+      .sidebar ul{
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+      }
+
+      .sidebar ul li{
+        margin:10px;
+      }
+
+      .main-content{
+        margin-left:0;
+        width:100%;
+      }
+
+      section{
+        padding:70px 8%;
+      }
+
+      h1{
+        font-size:2.2rem;
+      }
+
+      .hero-content{
+        padding:30px 20px;
+      }
+
+      .profile-img{
+        width:140px;
+        height:140px;
+      }
+
+      .section-title{
+        font-size:2rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <div class="sidebar">
+
+    <h2>Portfolio</h2>
+
+    <ul>
+      <li><a href="#home"> Home</a></li>
+      <li><a href="#about"> About</a></li>
+      <li><a href="#projects"> Projects</a></li>
+      <li><a href="#contact"> Contact</a></li>
+    </ul>
+
+  </div>
+
+
+  <div class="main-content">
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <img 
+          src="picture.jpg"
+          alt="Profile Photo"
+          class="profile-img"
+        >
+
+        <h1>Prince Samuel D. Bohol</h1>
+
+        <p class="tagline">
+          Design • Develop • Deploy
+        </p>
+
+        <a href="#about" class="btn">
+          Explore More
+        </a>
+
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+      <h2 class="section-title">About Me</h2>
+
+      <p>
+        I am an aspiring programmer and web developer passionate
+        about creating modern and responsive websites. I enjoy
+        learning new technologies, solving coding problems, and
+        building projects that improve my skills in front-end and
+        back-end development. My goal is to become a successful
+        software developer and create impactful digital experiences.
+      </p>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-container">
+
+        <div class="project-card">
+
+          <h3>Portfolio Website</h3>
+
+          <p>
+            A responsive personal portfolio website showcasing
+            my skills, projects, and contact information.
+          </p>
+
+          <div class="tech">
+            Tech Used: HTML, CSS, JavaScript
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <h3>Student Management System</h3>
+
+          <p>
+            A system for managing student records including
+            registration, grades, and attendance tracking.
+          </p>
+
+          <div class="tech">
+            Tech Used: PHP, MySQL, Bootstrap
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <h3>E-Commerce Website</h3>
+
+          <p>
+            An online shopping platform with product listings,
+            shopping cart, and checkout functionality.
+          </p>
+
+          <div class="tech">
+            Tech Used: HTML, CSS, JavaScript
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+      <h2 class="section-title">Contact</h2>
+
+      <div class="contact-info">
+
+        <p>
+          📧 Email:
+          <a href="mailto:Princesamuel.bohol@cvsu.edu.ph">
+            Princesamuel.bohol@cvsu.edu.ph
+          </a>
+        </p>
+
+        <p>
+          💻 GitHub:
+          <a href="https://github.com/sammyit" target="_blank">
+            github.com/sammyit
+          </a>
+        </p>
+
+        <p>
+          🌐 Facebook:
+          <a href="https://facebook.com/" target="_blank">
+            Princee Bohol
+          </a>
+        </p>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+</html>
