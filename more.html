@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prince Samuel Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,12 +14,58 @@
       padding:0;
       box-sizing:border-box;
       font-family:'Poppins', sans-serif;
+      scroll-behavior:smooth;
     }
 
     body{
       background:#0f172a;
       color:white;
       overflow-x:hidden;
+      position:relative;
+    }
+
+    /* ================= BACKGROUND DESIGN ================= */
+
+    body::before{
+      content:'';
+      position:fixed;
+      width:500px;
+      height:500px;
+      background:#38bdf8;
+      border-radius:50%;
+      top:-200px;
+      left:-150px;
+      filter:blur(120px);
+      opacity:0.25;
+      z-index:-1;
+    }
+
+    body::after{
+      content:'';
+      position:fixed;
+      width:400px;
+      height:400px;
+      background:#f97316;
+      border-radius:50%;
+      bottom:-150px;
+      right:-120px;
+      filter:blur(120px);
+      opacity:0.2;
+      z-index:-1;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size:40px 40px;
+      z-index:-1;
     }
 
     /* ================= NAVBAR ================= */
@@ -84,6 +129,7 @@
       align-items:center;
       justify-content:center;
       padding:120px 8%;
+      position:relative;
     }
 
     .hero-container{
@@ -109,10 +155,6 @@
       line-height:1.1;
       margin:15px 0;
       font-weight:700;
-    }
-
-    .hero-text h1 span{
-      color:#38bdf8;
     }
 
     .hero-text p{
@@ -192,73 +234,101 @@
       border:4px solid rgba(255,255,255,0.1);
     }
 
-    /* ================= REQUIREMENTS SECTION ================= */
+    /* ================= ABOUT SECTION ================= */
 
-    .requirements{
-      padding:80px 8%;
-      background:#f8fafc;
-      color:#111827;
+    .about{
+      padding:100px 8%;
     }
 
-    .requirements-title{
+    .section-title{
       font-size:3rem;
-      font-weight:700;
+      color:#38bdf8;
       margin-bottom:15px;
+      font-weight:700;
     }
 
-    .requirements-subtitle{
-      color:#6b7280;
-      margin-bottom:50px;
-      font-size:1rem;
+    .title-line{
+      width:90px;
+      height:5px;
+      background:#38bdf8;
+      border-radius:10px;
+      margin-bottom:40px;
     }
 
-    .requirements-container{
+    .about-box{
+      background:rgba(255,255,255,0.05);
+      padding:40px;
+      border-radius:25px;
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 8px 30px rgba(0,0,0,0.25);
+      max-width:950px;
+    }
+
+    .about-box p{
+      color:#e2e8f0;
+      font-size:1.2rem;
+      line-height:2;
+    }
+
+    /* ================= PROJECTS ================= */
+
+    .projects{
+      padding:100px 8%;
+    }
+
+    .projects-container{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
       gap:30px;
     }
 
-    .requirement-card{
-      background:white;
-      border:2px solid #e5e7eb;
-      border-top:6px solid #4f46e5;
-      border-radius:12px;
-      padding:35px 25px;
-      position:relative;
+    .project-card{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,0.08);
       transition:0.3s;
-      box-shadow:0 5px 20px rgba(0,0,0,0.08);
     }
 
-    .requirement-card:hover{
-      transform:translateY(-8px);
+    .project-card:hover{
+      transform:translateY(-10px);
+      background:rgba(255,255,255,0.08);
     }
 
-    .requirement-number{
-      width:50px;
-      height:50px;
-      background:#4f46e5;
-      color:white;
-      border-radius:50%;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-weight:700;
-      font-size:1.2rem;
-      position:absolute;
-      top:-25px;
-      left:30px;
-    }
-
-    .requirement-card h3{
-      margin-top:20px;
+    .project-card h2{
+      color:#38bdf8;
       margin-bottom:15px;
-      font-size:1.5rem;
-      color:#111827;
     }
 
-    .requirement-card p{
-      color:#6b7280;
-      line-height:1.7;
+    .project-card p{
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:20px;
+    }
+
+    .project-card span{
+      color:#94a3b8;
+    }
+
+    /* ================= CONTACT ================= */
+
+    .contact{
+      padding:100px 8%;
+    }
+
+    .contact-box{
+      background:rgba(255,255,255,0.05);
+      padding:40px;
+      border-radius:25px;
+      border:1px solid rgba(255,255,255,0.08);
+      max-width:800px;
+    }
+
+    .contact-box p{
+      font-size:1.1rem;
+      margin-bottom:20px;
+      color:#e2e8f0;
     }
 
     /* ================= MOBILE ================= */
@@ -292,13 +362,16 @@
         width:250px;
       }
 
-      .requirements-title{
+      .section-title{
         font-size:2.2rem;
-        text-align:center;
       }
 
-      .requirements-subtitle{
-        text-align:center;
+      .about-box{
+        padding:25px;
+      }
+
+      .about-box p{
+        font-size:1rem;
       }
 
     }
@@ -317,11 +390,9 @@
     </div>
 
     <ul>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Skills</a></li>
-      <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Experience</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
 
     <a href="#" class="resume-btn">
@@ -335,8 +406,6 @@
   <section class="hero">
 
     <div class="hero-container">
-
-      <!-- LEFT -->
 
       <div class="hero-text">
 
@@ -352,20 +421,7 @@
           experiences that solve real-world problems.
         </p>
 
-        <div class="hero-buttons">
-
-          <a href="#" class="btn btn-primary">
-            View Portfolio
-          </a>
-
-          <a href="#" class="btn btn-secondary">
-            Contact Me
-          </a>
-
-        </div>
-
-        <!-- STATS -->
-
+       
         <div class="stats">
 
           <div>
@@ -387,8 +443,6 @@
 
       </div>
 
-      <!-- RIGHT -->
-
       <div class="hero-image">
 
         <img src="pogi.jpg" alt="Prince Samuel">
@@ -399,80 +453,108 @@
 
   </section>
 
-  <!-- REQUIREMENTS SECTION -->
+  <!-- ABOUT SECTION -->
 
-  <section class="requirements">
+  <section class="about" id="about">
 
-    <h1 class="requirements-title">
-      What Your Portfolio Must Have
+    <h1 class="section-title">
+      About Me
     </h1>
 
-    <p class="requirements-subtitle">
-      All four sections are required for full credit.
-      Think of each one as a building block of your professional identity.
-    </p>
+    <div class="title-line"></div>
 
-    <div class="requirements-container">
+    <div class="about-box">
 
-      <!-- CARD 1 -->
+      <p>
+        I am an aspiring programmer and web developer passionate about
+        creating modern and responsive websites. I enjoy learning new
+        technologies, solving coding problems, and building projects
+        that improve my skills in front-end and back-end development.
+        My goal is to become a successful software developer and create
+        impactful digital experiences.
+      </p>
 
-      <div class="requirement-card">
+    </div>
 
-        <div class="requirement-number">1</div>
+  </section>
 
-        <h3>Hero Section</h3>
+  <!-- PROJECTS SECTION -->
+
+  <section class="projects" id="projects">
+
+    <h1 class="section-title">
+      Projects
+    </h1>
+
+    <div class="title-line"></div>
+
+    <div class="projects-container">
+
+      <div class="project-card">
+
+        <h2>Portfolio Website</h2>
 
         <p>
-          Your name, tagline, and profile photo —
-          the first impression of your portfolio.
+          A responsive personal portfolio website showcasing my skills,
+          projects, and contact information.
         </p>
+
+        <span>Tech Used: HTML, CSS</span>
 
       </div>
 
-      <!-- CARD 2 -->
+      <div class="project-card">
 
-      <div class="requirement-card">
-
-        <div class="requirement-number">2</div>
-
-        <h3>About Me</h3>
+        <h2>Student Management System</h2>
 
         <p>
-          A short bio highlighting your background,
-          interests, and goals in technology.
+          A system for managing student information and records.
         </p>
+
+        <span>Tech Used: HTML</span>
 
       </div>
 
-      <!-- CARD 3 -->
+      <div class="project-card">
 
-      <div class="requirement-card">
-
-        <div class="requirement-number">3</div>
-
-        <h3>Projects</h3>
+        <h2>E-Commerce Website</h2>
 
         <p>
-          At least 3 projects with titles,
-          descriptions, and technologies used.
+          An online shopping platform with product listings,
+          shopping cart, and checkout functionality.
         </p>
+
+        <span>Tech Used: HTML, CSS</span>
 
       </div>
 
-      <!-- CARD 4 -->
+    </div>
 
-      <div class="requirement-card">
+  </section>
 
-        <div class="requirement-number">4</div>
+  <!-- CONTACT SECTION -->
 
-        <h3>Contact</h3>
+  <section class="contact" id="contact">
 
-        <p>
-          Email, GitHub link, and other ways
-          people can reach you online.
-        </p>
+    <h1 class="section-title">
+      Contact
+    </h1>
 
-      </div>
+    <div class="title-line"></div>
+
+    <div class="contact-box">
+
+      <p>
+        📧 Email: princesamuel.bohol@cvsu.edu.ph
+      </p>
+
+      <p>
+        💻 GitHub: github.com/sammyit
+      </p>
+
+      <p>
+        📘 Facebook: Princee Bohol
+      </p>
 
     </div>
 
